@@ -23,7 +23,7 @@ func main() {
 		}
 	}
 
-	show(t)
+	show(t.Local())
 }
 
 func parse(in string, now time.Time) (time.Time, bool) {
@@ -106,6 +106,20 @@ func parseTime(in string) (time.Time, bool) {
 		"2006-01-02 15:04",
 		"2006/01/02 15:04",
 		"2006.01.02 15:04",
+		// Reverse datetime with timezone name
+		"2006-01-02 15:04:05 MST",
+		"2006/01/02 15:04:05 MST",
+		"2006.01.02 15:04:05 MST",
+		"2006-01-02 15:04 MST",
+		"2006/01/02 15:04 MST",
+		"2006.01.02 15:04 MST",
+		// Reverse datetime with timezone shift
+		"2006-01-02 15:04:05 -07:00",
+		"2006/01/02 15:04:05 -07:00",
+		"2006.01.02 15:04:05 -07:00",
+		"2006-01-02 15:04 -07:00",
+		"2006/01/02 15:04 -07:00",
+		"2006.01.02 15:04 -07:00",
 		// RFC
 		time.UnixDate,
 		time.RubyDate,
