@@ -78,13 +78,13 @@ func parseDiff(in string) (time.Duration, bool) {
 func parseTime(in string) (time.Time, bool) {
 	// Timestamp in seconds
 	if n, err := strconv.Atoi(in); err == nil {
-		if n > 10000000000 { // milliseconds
+		if n > 10000000000 { // milliseconds (removed)
 			return time.Unix(int64(n/1000), 0).UTC(), true
 		}
 		return time.Unix(int64(n), 0).UTC(), true
 	}
 	if n, err := strconv.ParseFloat(in, 64); err == nil {
-		if n > 10000000000 { // milliseconds
+		if n > 10000000000 { // milliseconds (removed)
 			return time.Unix(int64(n/1000), 0).UTC(), true
 		}
 		return time.Unix(int64(n), 0).UTC(), true

@@ -13,9 +13,27 @@ func TestParse(t *testing.T) {
 		ok   bool
 	}{
 		{
-			name: "timestamp",
+			name: "int timestamp",
 			in:   "1562913751",
-			out:  time.Date(2019, 07, 12, 6, 42, 31, 0, time.UTC),
+			out:  time.Date(2019, 7, 12, 6, 42, 31, 0, time.UTC),
+			ok:   true,
+		},
+		{
+			name: "int timestamp with milliseconds",
+			in:   "1562913751555",
+			out:  time.Date(2019, 7, 12, 6, 42, 31, 0, time.UTC),
+			ok:   true,
+		},
+		{
+			name: "float timestamp",
+			in:   "1562913751.0",
+			out:  time.Date(2019, 7, 12, 6, 42, 31, 0, time.UTC),
+			ok:   true,
+		},
+		{
+			name: "float timestamp with milliseconds",
+			in:   "1562913751555.0",
+			out:  time.Date(2019, 7, 12, 6, 42, 31, 0, time.UTC),
 			ok:   true,
 		},
 		{
